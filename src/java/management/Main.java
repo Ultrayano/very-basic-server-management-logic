@@ -49,6 +49,7 @@ public class Main extends Application {
 
             MainViewController controller = loader.getController();
             controller.setMain(this);
+
             
            
         } catch (IOException e) {
@@ -88,7 +89,6 @@ public class Main extends Application {
             AddDataCenterViewController controller = loader.getController();
             controller.setMain(this);
 
-
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -103,6 +103,7 @@ public class Main extends Application {
             Scene scene = new Scene(loader.load());
             primaryStage.setScene(scene);
             primaryStage.show();
+
 
             DeleteViewController controller = loader.getController();
             controller.setMain(this, sourceId);

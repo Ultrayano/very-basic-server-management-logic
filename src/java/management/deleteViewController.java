@@ -2,14 +2,13 @@ package management;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.ComboBox;
-import management.models.Rack;
 
-public class AddDataCenterViewController {
+public class DeleteViewController {
 	private Main main;
 
 	public void setMain(Main main) {
 		this.main = main;
+
 	}
 	
 	@FXML

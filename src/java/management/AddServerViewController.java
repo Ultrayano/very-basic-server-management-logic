@@ -1,6 +1,7 @@
 package management;
 
 import javafx.collections.FXCollections;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.ComboBox;
 
@@ -19,4 +20,8 @@ public class AddServerViewController {
 		dataCenter.setItems(FXCollections.observableList(main.getDataCenterLocations()));
 	}
 
+	@FXML
+	void backTapped(ActionEvent event) {
+		this.main.showMainView();
+	}
 }
