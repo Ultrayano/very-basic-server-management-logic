@@ -20,7 +20,7 @@ public class Main extends Application {
     private List<Server> servers = new ArrayList<>();
     private List<DataCenter> dataCenters = new ArrayList<>();
 
-    private MainViewController mainViewController = new MainViewController();
+    
 
     private Stage primaryStage;
 
@@ -45,6 +45,11 @@ public class Main extends Application {
             Scene scene = new Scene(loader.load());
             primaryStage.setScene(scene);
             primaryStage.show();
+            MainViewController mainViewController = loader.getController();
+            mainViewController.setMain(this);
+            
+ 
+            
             
            
         } catch (IOException e) {
@@ -61,6 +66,26 @@ public class Main extends Application {
             Scene scene = new Scene(loader.load());
             primaryStage.setScene(scene);
             primaryStage.show();
+            
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    
+    public void showDeleteView() {
+        try {
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(Main.class.getResource("../resources/fxml/DeleteView.fxml"));
+
+            // Show the scene containing the root layout.
+            Scene scene = new Scene(loader.load());
+            primaryStage.setScene(scene);
+            primaryStage.show();
+            
+            DeleteViewController deleteViewController = loader.getController();
+            deleteViewController.setMain(this);
+            
+            
         } catch (IOException e) {
             e.printStackTrace();
         }
