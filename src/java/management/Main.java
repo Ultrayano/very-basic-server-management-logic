@@ -2,8 +2,11 @@ package management;
 
 
 import javafx.application.Application;
+import javafx.collections.FXCollections;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.control.ComboBox;
 import javafx.stage.Stage;
 import management.models.DataCenter;
 import management.models.Rack;
@@ -20,13 +23,14 @@ public class Main extends Application {
     private List<Server> servers = new ArrayList<>();
     private List<DataCenter> dataCenters = new ArrayList<>();
 
-    
-
     private Stage primaryStage;
 
     public static void main(String[] args) {
         launch(args);
     }
+
+    @FXML
+    ComboBox<Rack> cbRacks;
 
 
     @Override
@@ -45,11 +49,10 @@ public class Main extends Application {
             Scene scene = new Scene(loader.load());
             primaryStage.setScene(scene);
             primaryStage.show();
-            MainViewController mainViewController = loader.getController();
-            mainViewController.setMain(this);
-            
- 
-            
+
+            MainViewController controller = loader.getController();
+            controller.setMain(this);
+
             
            
         } catch (IOException e) {
@@ -66,12 +69,12 @@ public class Main extends Application {
             Scene scene = new Scene(loader.load());
             primaryStage.setScene(scene);
             primaryStage.show();
-            
+
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
-    
+
     public void showDeleteView() {
         try {
             FXMLLoader loader = new FXMLLoader();
@@ -81,11 +84,11 @@ public class Main extends Application {
             Scene scene = new Scene(loader.load());
             primaryStage.setScene(scene);
             primaryStage.show();
-            
-            DeleteViewController deleteViewController = loader.getController();
-            deleteViewController.setMain(this);
-            
-            
+
+
+            DeleteViewController controller = loader.getController();
+            controller.setMain(this);
+
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -97,14 +100,23 @@ public class Main extends Application {
         // WIP
     }
 
-
-
     private void generateRacks() {
         racks.add(new Rack("BA01"));
         racks.add(new Rack("BA02"));
         racks.add(new Rack("BA03"));
         racks.add(new Rack("ZU01"));
         racks.add(new Rack("ZU02"));
+    }
 
+    public List<Rack> getRacks() {
+        return racks;
+    }
+
+    public List<Server> getServers() {
+        return servers;
+    }
+
+    public List<DataCenter> getDataCenters() {
+        return dataCenters;
     }
 }
