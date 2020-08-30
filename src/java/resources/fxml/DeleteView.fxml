@@ -4,14 +4,15 @@
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
-
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="202.0"
             prefWidth="382.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1"
             fx:controller="management.DeleteViewController">
-   <children>
-      <ComboBox fx:id="listToDeleteFrom" layoutX="116.0" layoutY="84.0" prefWidth="150.0"/>
-      <Label layoutX="110.0" layoutY="33.0" text="Eintrag aus der Liste entfernen" textAlignment="CENTER" />
-      <Button fx:id="zurückButtonDelete" layoutX="164.0" layoutY="162.0" mnemonicParsing="false" onAction="#backTapped" prefHeight="25.0" prefWidth="54.0" text="Zurück" />
-      <Button fx:id="deleteButton" layoutX="161.0" layoutY="101.0" mnemonicParsing="false" text="Löschen" />
-   </children>
+    <children>
+        <ComboBox fx:id="listToDeleteFrom" layoutX="116.0" layoutY="84.0" prefWidth="150.0"/>
+        <Label layoutX="110.0" layoutY="33.0" text="Eintrag aus der Liste entfernen" textAlignment="CENTER"/>
+        <Button fx:id="zurückButtonDelete" layoutX="164.0" layoutY="162.0" mnemonicParsing="false"
+                onAction="#backTapped" prefHeight="25.0" prefWidth="54.0" text="Zurück"/>
+        <Button fx:id="deleteButton" layoutX="161.0" layoutY="101.0" mnemonicParsing="false" text="Löschen"
+                onAction="#delete"/>
+    </children>
 </AnchorPane>

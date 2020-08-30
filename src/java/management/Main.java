@@ -2,11 +2,8 @@ package management;
 
 
 import javafx.application.Application;
-import javafx.collections.FXCollections;
-import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
-import javafx.scene.control.ComboBox;
 import javafx.stage.Stage;
 import management.models.DataCenter;
 import management.models.Rack;
@@ -41,7 +38,7 @@ public class Main extends Application {
         try {
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(Main.class.getResource("../resources/fxml/MainView.fxml"));
-            
+
             // Show the scene containing the root layout.
             Scene scene = new Scene(loader.load());
             primaryStage.setScene(scene);
@@ -50,13 +47,12 @@ public class Main extends Application {
             MainViewController controller = loader.getController();
             controller.setMain(this);
 
-            
-           
+
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
-    
+
     public void showAddServerView() {
         try {
             FXMLLoader loader = new FXMLLoader();
@@ -125,12 +121,6 @@ public class Main extends Application {
         rackList.add(new Rack("BA03"));
         rackList.add(new Rack("ZU01"));
         rackList.add(new Rack("ZU02"));
-
-        DataCenter dataCenter = new DataCenter("YO MOM");
-        servers.add(new Server("TestServer", "Testmodel", dataCenter, rackList.get(1), 23));
-        servers.add(new Server("2wsgrev", "Testwgwemodel", dataCenter, rackList.get(3), 224242343));
-        servers.add(new Server("Teswfewgwer", "wegew", dataCenter, rackList.get(2), 243));
-
     }
 
     public List<String> getServerNames() {
@@ -149,15 +139,49 @@ public class Main extends Application {
         return rackNames;
     }
 
-    public List<DataCenter> getDataCenterLocations() {
+    public List<String> getDataCenterLocations() {
         List<String> dataCenterLocations = new ArrayList<>();
         for (DataCenter dataCenter : dataCenters) {
             dataCenterLocations.add(dataCenter.getLocation());
         }
-        return dataCenters;
+        return dataCenterLocations;
     }
 
     public List<Server> getServers() {
         return servers;
+    }
+
+    public List<DataCenter> getDataCenters() {
+        return dataCenters;
+    }
+
+    public Rack getRackByName(String name) {
+        Rack foundRack = null;
+        for (Rack rack : rackList) {
+            if (rack.getName().equals(name)) {
+                foundRack = rack;
+            }
+        }
+        return foundRack;
+    }
+
+    public Server getServerByName(String name) {
+        Server foundServer = null;
+        for (Server server : servers) {
+            if (server.getName().equals(name)) {
+                foundServer = server;
+            }
+        }
+        return foundServer;
+    }
+
+    public DataCenter getDataCenterByLocation(String location) {
+        DataCenter foundDataCenter = null;
+        for (DataCenter dataCenter : dataCenters) {
+            if (dataCenter.getLocation().equals(location)) {
+                foundDataCenter = dataCenter;
+            }
+        }
+        return foundDataCenter;
     }
 }

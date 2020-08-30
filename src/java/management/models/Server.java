@@ -5,9 +5,9 @@ public class Server {
     private String model;
     private DataCenter dataCenter;
     private Rack rack;
-    private int he;
+    private String he;
 
-    public Server(String name, String model, DataCenter dataCenter, Rack rack, int he) {
+    public Server(String name, String model, DataCenter dataCenter, Rack rack, String he) {
         this.name = name;
         this.model = model;
         this.dataCenter = dataCenter;
@@ -47,11 +47,11 @@ public class Server {
         this.rack = rack;
     }
 
-    public int getHe() {
+    public String getHe() {
         return he;
     }
 
-    public void setHe(int he) {
+    public void setHe(String he) {
         this.he = he;
     }
 }
