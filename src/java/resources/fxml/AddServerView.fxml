@@ -23,6 +23,7 @@
       <Label layoutX="135.0" layoutY="226.0" text="Rack" />
       <ComboBox layoutX="65.0" layoutY="192.0" prefHeight="25.0" prefWidth="167.0" promptText="Datenzenter auswählen" />
       <Label layoutX="140.0" layoutY="284.0" text="HE" />
-      <ComboBox layoutX="64.0" layoutY="244.0" prefHeight="25.0" prefWidth="167.0" promptText="Rack auswählen" />
+      <ComboBox id="racks" layoutX="64.0" layoutY="244.0" prefHeight="25.0" prefWidth="167.0"
+                promptText="Rack auswählen" />
    </children>
 </AnchorPane>
