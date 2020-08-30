@@ -1,7 +1,7 @@
 package management.models;
 
 public class Rack {
-    String name;
+    private String name;
 
     public Rack(String name) {
         this.name = name;

@@ -94,7 +94,7 @@ public class Main extends Application {
         }
     }
 
-    public void showDeleteView() {
+    public void showDeleteView(String sourceId) {
         try {
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(Main.class.getResource("../resources/fxml/DeleteView.fxml"));
@@ -105,7 +105,7 @@ public class Main extends Application {
             primaryStage.show();
 
             DeleteViewController controller = loader.getController();
-            controller.setMain(this);
+            controller.setMain(this, sourceId);
 
         } catch (IOException e) {
             e.printStackTrace();
@@ -124,6 +124,20 @@ public class Main extends Application {
         rackList.add(new Rack("BA03"));
         rackList.add(new Rack("ZU01"));
         rackList.add(new Rack("ZU02"));
+
+        DataCenter dataCenter = new DataCenter("YO MOM");
+        servers.add(new Server("TestServer", "Testmodel", dataCenter, rackList.get(1), 23));
+        servers.add(new Server("2wsgrev", "Testwgwemodel", dataCenter, rackList.get(3), 224242343));
+        servers.add(new Server("Teswfewgwer", "wegew", dataCenter, rackList.get(2), 243));
+
+    }
+
+    public List<String> getServerNames() {
+        List<String> serverNames = new ArrayList<>();
+        for (Server server : servers) {
+            serverNames.add(server.getName());
+        }
+        return serverNames;
     }
 
     public List<String> getRackNames() {
@@ -140,5 +154,9 @@ public class Main extends Application {
             dataCenterLocations.add(dataCenter.getLocation());
         }
         return dataCenters;
+    }
+
+    public List<Server> getServers() {
+        return servers;
     }
 }

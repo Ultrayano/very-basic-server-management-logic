@@ -21,13 +21,13 @@
                     prefWidth="257.0" text="-&#10;Remove Datacenter" textAlignment="CENTER" onAction="#showDeleteView" />
         </buttons>
       </ButtonBar>
-      <TableView layoutX="25.0" layoutY="88.0" prefHeight="297.0" prefWidth="550.0">
+      <TableView fx:id="table" layoutX="25.0" layoutY="88.0" prefHeight="297.0" prefWidth="550.0">
         <columns>
-          <TableColumn prefWidth="133.0" text="Name" />
-          <TableColumn prefWidth="133.0" text="Modell" />
-            <TableColumn prefWidth="133.0" text="Data Center" />
-            <TableColumn prefWidth="75.0" text="Rack" />
-            <TableColumn prefWidth="75.0" text="HE" />
+          <TableColumn fx:id="name" prefWidth="133.0" text="Name" />
+          <TableColumn fx:id="model" prefWidth="133.0" text="Modell" />
+            <TableColumn fx:id="dataCenter" prefWidth="133.0" text="Data Center" />
+            <TableColumn fx:id="rack" prefWidth="75.0" text="Rack" />
+            <TableColumn fx:id="he" prefWidth="75.0" text="HE" />
         </columns>
       </TableView>
    </children>

@@ -1,7 +1,7 @@
 package management.models;
 
 public class DataCenter {
-    String location;
+    private String location;
 
     public DataCenter(String location) {
         this.location = location;

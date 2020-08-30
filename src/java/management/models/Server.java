@@ -1,11 +1,11 @@
 package management.models;
 
 public class Server {
-    public String name;
-    public String model;
-    public DataCenter dataCenter;
-    public Rack rack;
-    public int he;
+    private String name;
+    private String model;
+    private DataCenter dataCenter;
+    private Rack rack;
+    private int he;
 
     public Server(String name, String model, DataCenter dataCenter, Rack rack, int he) {
         this.name = name;
