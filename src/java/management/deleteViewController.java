@@ -10,4 +10,9 @@ public class DeleteViewController {
 		this.main = main;
 
 	}
+	
+	@FXML
+	void backTapped(ActionEvent event) {
+		this.main.showMainView();
+	}
 }
