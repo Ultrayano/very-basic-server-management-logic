@@ -7,7 +7,8 @@
 <?import javafx.scene.text.Font?>
 
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="360.0" prefWidth="298.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="360.0"
+            prefWidth="298.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="management.AddServerViewController">
    <children>
       <Label alignment="CENTER" contentDisplay="CENTER" layoutX="14.0" layoutY="14.0" prefHeight="25.0" prefWidth="276.0" text="Neuer Server hinzufügen" textAlignment="CENTER">
          <font>
@@ -21,9 +22,10 @@
       <Label layoutX="117.0" layoutY="170.0" text="Datenzenter" />
       <TextField layoutX="64.0" layoutY="302.0" prefHeight="25.0" prefWidth="167.0" />
       <Label layoutX="135.0" layoutY="226.0" text="Rack" />
-      <ComboBox layoutX="65.0" layoutY="192.0" prefHeight="25.0" prefWidth="167.0" promptText="Datenzenter auswählen" />
+      <ComboBox fx:id="dataCenter" layoutX="65.0" layoutY="192.0" prefHeight="25.0" prefWidth="167.0"
+                promptText="Datenzenter auswählen" />
       <Label layoutX="140.0" layoutY="284.0" text="HE" />
-      <ComboBox id="racks" layoutX="64.0" layoutY="244.0" prefHeight="25.0" prefWidth="167.0"
+      <ComboBox fx:id="racks" layoutX="64.0" layoutY="244.0" prefHeight="25.0" prefWidth="167.0"
                 promptText="Rack auswählen" />
    </children>
 </AnchorPane>

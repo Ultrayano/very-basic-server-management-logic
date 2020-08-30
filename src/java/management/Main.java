@@ -19,7 +19,7 @@ import java.util.List;
 
 public class Main extends Application {
 
-    private List<Rack> racks = new ArrayList<>();
+    private List<Rack> rackList = new ArrayList<>();
     private List<Server> servers = new ArrayList<>();
     private List<DataCenter> dataCenters = new ArrayList<>();
 
@@ -29,14 +29,11 @@ public class Main extends Application {
         launch(args);
     }
 
-    @FXML
-    ComboBox<Rack> cbRacks;
-
-
     @Override
     public void start(Stage primaryStage) {
         this.primaryStage = primaryStage;
         this.primaryStage.setTitle("Server Inventarliste");
+        this.generateRacks();
         this.showMainView();
     }
 
@@ -70,6 +67,28 @@ public class Main extends Application {
             primaryStage.setScene(scene);
             primaryStage.show();
 
+            AddServerViewController controller = loader.getController();
+            controller.setMain(this);
+
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void showAddDataCenterView() {
+        try {
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(Main.class.getResource("../resources/fxml/AddDCView.fxml"));
+
+            // Show the scene containing the root layout.
+            Scene scene = new Scene(loader.load());
+            primaryStage.setScene(scene);
+            primaryStage.show();
+
+            AddDataCenterViewController controller = loader.getController();
+            controller.setMain(this);
+
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -101,22 +120,26 @@ public class Main extends Application {
     }
 
     private void generateRacks() {
-        racks.add(new Rack("BA01"));
-        racks.add(new Rack("BA02"));
-        racks.add(new Rack("BA03"));
-        racks.add(new Rack("ZU01"));
-        racks.add(new Rack("ZU02"));
+        rackList.add(new Rack("BA01"));
+        rackList.add(new Rack("BA02"));
+        rackList.add(new Rack("BA03"));
+        rackList.add(new Rack("ZU01"));
+        rackList.add(new Rack("ZU02"));
     }
 
-    public List<Rack> getRacks() {
-        return racks;
+    public List<String> getRackNames() {
+        List<String> rackNames = new ArrayList<>();
+        for (Rack rack : rackList) {
+            rackNames.add(rack.getName());
+        }
+        return rackNames;
     }
 
-    public List<Server> getServers() {
-        return servers;
-    }
-
-    public List<DataCenter> getDataCenters() {
+    public List<DataCenter> getDataCenterLocations() {
+        List<String> dataCenterLocations = new ArrayList<>();
+        for (DataCenter dataCenter : dataCenters) {
+            dataCenterLocations.add(dataCenter.getLocation());
+        }
         return dataCenters;
     }
 }

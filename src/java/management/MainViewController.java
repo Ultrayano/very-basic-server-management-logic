@@ -30,6 +30,6 @@ public class MainViewController {
 
 	@FXML
 	void showAddDCView (ActionEvent event) {
-		this.main.showAddServerView();
+		this.main.showAddDataCenterView();
 	}
 }
